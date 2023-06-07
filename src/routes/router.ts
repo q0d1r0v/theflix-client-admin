@@ -14,6 +14,7 @@ const NotFoundPage = () => import('../pages/NotFoundPage.vue')
 const AccountPage = () => import('../pages/AccountPage.vue')
 const CreatePostPage = () => import('../pages/CreatePostPage.vue')
 const UsersPage = () => import('../pages/UsersPage.vue')
+const DocsPage = () => import('../pages/DocsPage.vue')
 
 // router
 export const router = createRouter({
@@ -59,6 +60,14 @@ export const router = createRouter({
                     path: '/about',
                     name: 'AboutPage',
                     component: AboutPage,
+                    meta: {
+                        auth: true
+                    }
+                },
+                {
+                    path: '/docs',
+                    name: 'DocsPage',
+                    component: DocsPage,
                     meta: {
                         auth: true
                     }

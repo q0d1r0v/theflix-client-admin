@@ -43,6 +43,13 @@ const NavBarItems = ref<INavBarTypes[]>(
             path: '/users',
             title: 'Foydalanuvchilar'
         },
+        {
+            id: 3,
+            icon: 'ri-article-line',
+            active_icon: 'ri-article-fill',
+            path: '/docs',
+            title: 'Api docs'
+        },
     ]
 )
 
@@ -60,6 +67,9 @@ function goToPage(path: string) {
         </div>
 
         <div class="parent-menu" v-for="(nav_bar, index) of NavBarItems" :key="index" @click="goToPage(nav_bar.path)">
+            <div class="left-active-item" v-show="route.fullPath === nav_bar.path">
+                <!-- some -->
+            </div>
             <Icon :icon="route.fullPath === nav_bar.path ? nav_bar.active_icon : nav_bar.icon" :class="route.fullPath === nav_bar.path ? 'active-icon' : 'default-icon'" />
             <div :class="route.fullPath === nav_bar.path ? 'active-text' : 'default-text'">{{ nav_bar.title }}</div>
         </div>
@@ -88,7 +98,7 @@ function goToPage(path: string) {
         align-items: center;
         gap: 8px;
         font-size: 16px;
-        padding-top: 8px;
+        padding-top: 10px;
         user-select: none;
         cursor: pointer;
         transition: all 0.3s;
@@ -96,11 +106,21 @@ function goToPage(path: string) {
             & .default-icon {
                 font-size: 22px;
             }
+            .left-active-item {
+                position: absolute;
+                left: 0;
+                width: 10px;
+                height: 28px;
+                background: #1375f7;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
     }
     .parent-menu:hover {
         color: #1375f7;
     }
     .active-icon {
+        margin-left: 10px;
         font-size: 22px;
         color: #1375f7;
     }
