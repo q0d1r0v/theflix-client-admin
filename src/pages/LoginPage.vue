@@ -48,11 +48,11 @@ async function login() {
             <div class="auth-form">
                 <div>
                     <q-input placeholder="Foydalanuvchi nomi" color="white" outlined style="background: #fff;"
-                        v-model="auth_form.username" />
+                        v-model="auth_form.username" @keyup.enter="login" />
                 </div>
                 <div>
                     <q-input placeholder="Foydalanuvchi paroli" color="white" outlined style="background: #fff;"
-                        type="password" v-model="auth_form.password" />
+                        type="password" v-model="auth_form.password" @keyup.enter="login" />
                 </div>
             </div>
 
